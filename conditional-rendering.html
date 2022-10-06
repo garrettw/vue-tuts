@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.40/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 v-if="isActive">{{ name }}</h1>
+        <h1 v-else-if="name === 'Garrett'">Hey {{ name }}</h1>
+        <h1 v-else>NO USER</h1>
+    </div>
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    name: 'Garrett',
+                    isActive: false,
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

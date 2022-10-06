@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.40/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="post in posts" :key="post.id">{{ post.title }}</li>
+        </ul>
+    </div>
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    posts: [
+                        {id: 1, title: 'Post 1', body: 'ernheagrhaenghnasg'},
+                        {id: 2, title: 'Post 2', body: 'ernheagrhaenghnasg'},
+                        {id: 3, title: 'Post 3', body: 'ernheagrhaenghnasg'},
+                        {id: 4, title: 'Post 4', body: 'ernheagrhaenghnasg'},
+                    ]
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

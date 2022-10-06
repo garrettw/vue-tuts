@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.40/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <posts :data="34"></posts>
+    </div>
+    <script>
+        let app = Vue.createApp({
+            components: {
+                posts: {
+                    props: ['data'],
+                    template: `<h1 @click="display">{{ data }}</h1>`,
+                    data() {
+                        return {
+                            message: 'Hello Garrett'
+                        }
+                    },
+                    methods: {
+                        display() {
+                            console.log('hello')
+                        }
+                    }
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.40/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <posts v-slot="vm">
+            <h1 @click="vm.display">Click me (Options API)</h1>
+        </posts>
+    </div>
+    <div id="app2">
+        <posts v-slot="vm">
+            <h1 @click="vm.display">Click me (Composition API)</h1>
+        </posts>
+    </div>
+    <script>
+        // Default Slot - Options API
+        let app = Vue.createApp({
+            components: {
+                posts: {
+                    template: `<div><slot v-bind="self"/></div>`,
+                    data() {
+                        return {
+
+                        }
+                    },
+                    computed: {
+                        self() {
+                            return this;
+                        },
+                    },
+                    methods: {
+                        display() {
+                            console.log('hello')
+                        }
+                    }
+                }
+            }
+        }).mount('#app')
+
+        // Default Slot - Composition API
+        let app2 = Vue.createApp({
+            components: {
+                posts: {
+                    template: `<div><slot v-bind="self"/></div>`,
+                    setup(props, context) {
+                        return {
+                            self: {
+                                display: () => {
+                                    console.log('hello')
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }).mount('#app2')
+    </script>
+</body>
+</html>

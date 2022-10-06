@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.40/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>GW {{ isActive === 'active' ? 'is Active' : 'not active' }}</h1>
+    </div>
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    isActive: 'not active'
+                }
+            },
+            watch: {
+                isActive(value) {
+                    console.log('Sending an email: ' + value)
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

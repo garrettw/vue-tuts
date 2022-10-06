@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.40/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+
+        <h1>{{ number + 10 }}</h1>
+
+        <h1>{{ isActive ? 'is Active' : 'is Not Active' }}</h1>
+
+        <h1>{{ message.split('').reverse('').join('') }}</h1>
+    </div>
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    message: 'Hello',
+                    number: 10,
+                    isActive: true
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
